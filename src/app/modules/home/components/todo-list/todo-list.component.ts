@@ -7,10 +7,7 @@ import { TaskList } from '../../model/task-list'
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent {
-  public taskList: Array<TaskList> = [
-    { task: 'Minha nova task', checked: true },
-    { task: 'Minha nova task 2', checked: false }
-  ]
+  public taskList: Array<TaskList> = []
 
   public deleteItemTaskList (index: number) {
     this.taskList.splice(index, 1)
@@ -22,5 +19,9 @@ export class TodoListComponent {
     if (confirm) {
       this.taskList = []
     }
+  }
+
+  public setEmitTaskList (event: string) {
+    this.taskList.push({ task: event, checked: false })
   }
 }
